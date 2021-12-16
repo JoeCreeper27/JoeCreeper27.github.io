@@ -8,78 +8,94 @@
     <meta name="robots" content="index, follow" />
     <meta name="Joe P" content="Creeper Joe's page." />
     <meta name="author" content="Joe H 27" />
-    <link rel="icon" href="/icon-j.ico" type="image/icon-j" / >
-    <link rel="shortcut icon" href="/icon-j.ico" type="image/icon-j" / >
-    <base target="_blank" />
-    
-    <style id='hueman-main-style-inline-css' type='text/css'>
-    body { font-family:'Source Sans Pro', Arial, sans-serif;font-size:1.00rem }@media only screen and (min-width: 720px) {
-            .nav > li { font-size:1.00rem; }
-          }::selection { background-color: #1bfccb; }
-    ::-moz-selection { background-color: #1bfccb; }a,.themeform label .required,#flexslider-featured .flex-direction-nav .flex-next:hover,#flexslider-featured .flex-direction-nav .flex-prev:hover,.post-hover:hover .post-title a,.post-title a:hover,.sidebar.s1 .post-nav li a:hover i,.content .post-nav li a:hover i,.post-related a:hover,.sidebar.s1 .widget_rss ul li a,#footer .widget_rss ul li a,.sidebar.s1 .widget_calendar a,#footer .widget_calendar a,.sidebar.s1 .alx-tab .tab-item-category a,.sidebar.s1 .alx-posts .post-item-category a,.sidebar.s1 .alx-tab li:hover .tab-item-title a,.sidebar.s1 .alx-tab li:hover .tab-item-comment a,.sidebar.s1 .alx-posts li:hover .post-item-title a,#footer .alx-tab .tab-item-category a,#footer .alx-posts .post-item-category a,#footer .alx-tab li:hover .tab-item-title a,#footer .alx-tab li:hover .tab-item-comment a,#footer .alx-posts li:hover .post-item-title a,.comment-tabs li.active a,.comment-awaiting-moderation,.child-menu a:hover,.child-menu .current_page_item > a,.wp-pagenavi a{ color: #fca61b; }.themeform input[type="submit"],.themeform button[type="submit"],.sidebar.s1 .sidebar-top,.sidebar.s1 .sidebar-toggle,#flexslider-featured .flex-control-nav li a.flex-active,.post-tags a:hover,.sidebar.s1 .widget_calendar caption,#footer .widget_calendar caption,.author-bio .bio-avatar:after,.commentlist li.bypostauthor > .comment-body:after,.commentlist li.comment-author-admin > .comment-body:after{ background-color: #fca61b; }.post-format .format-container { border-color: #fca61b; }.sidebar.s1 .alx-tabs-nav li.active a,#footer .alx-tabs-nav li.active a,.comment-tabs li.active a,.wp-pagenavi a:hover,.wp-pagenavi a:active,.wp-pagenavi span.current{ border-bottom-color: #fca61b!important; }.sidebar.s2 .post-nav li a:hover i,
-    .sidebar.s2 .widget_rss ul li a,
-    .sidebar.s2 .widget_calendar a,
-    .sidebar.s2 .alx-tab .tab-item-category a,
-    .sidebar.s2 .alx-posts .post-item-category a,
-    .sidebar.s2 .alx-tab li:hover .tab-item-title a,
-    .sidebar.s2 .alx-tab li:hover .tab-item-comment a,
-    .sidebar.s2 .alx-posts li:hover .post-item-title a { color: #3bcfe2; }
-    .sidebar.s2 .sidebar-top,.sidebar.s2 .sidebar-toggle,.post-comments,.jp-play-bar,.jp-volume-bar-value,.sidebar.s2 .widget_calendar caption{ background-color: #3bcfe2; }.sidebar.s2 .alx-tabs-nav li.active a { border-bottom-color: #3bcfe2; }
-    .post-comments span:before { border-right-color: #3bcfe2; }
-          .search-expand,
-                  #nav-topbar.nav-container { background-color: #303030}@media only screen and (min-width: 720px) {
-                    #nav-topbar .nav ul { background-color: #303030; }
-                  }.is-scrolled #header .nav-container.desktop-sticky,
-                  .is-scrolled #header .search-expand { background-color: #303030; background-color: rgba(48,48,48,0.90) }.is-scrolled .topbar-transparent #nav-topbar.desktop-sticky .nav ul { background-color: #303030; background-color: rgba(48,48,48,0.95) }#header { background-color: #363944; }
-    @media only screen and (min-width: 720px) {
-      #nav-header .nav ul { background-color: #363944; }
-    }
-            .is-scrolled #header #nav-mobile { background-color: #454e5c; background-color: rgba(69,78,92,0.90) }body { background-color: #eaeaea; }
+    <link rel="icon" href="/pic/icon-j.ico" type="image/icon-j" / > <link
+    rel="shortcut icon" href="/pic/icon-j.ico" type="image/icon-j" / >
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+        /* font-family: "Source Sans Pro", Arial, sans-serif; */
+        font-size: 1rem;
+      }
+      @media only screen and (min-width: 720px) {
+        .nav > li {
+          font-size: 1rem;
+        }
+      }
+      ::selection {
+        background-color: #1bfccb;
+      }
+      body {
+        background-color: #eaeaea;
+      }
+      a {
+        color: teal;
+      }
     </style>
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-    
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
   </head>
-  <body data-rsssl=1 class="post-template-default single single-post postid-43193 single-format-standard wp-custom-logo col-2cl full-width topbar-enabled header-desktop-sticky header-mobile-sticky chrome">
-    <div id="wrapper">
-        <header id="header" class="specific-mobile-menu-on one-mobile-menu mobile_menu header-ads-desktop header-ads-mobile topbar-transparent no-header-img">
-        <nav class="nav-container group mobile-menu mobile-sticky " id="nav-mobile" data-menu-id="header-1">
+  <body>
+    <div class="topnav">
+      <a class="active" href="#home">Home</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+    </div>
+    <div id="Header">
+      <h1>Joe's Page</h1>
+      <p>Joe is a loser.</p>
+    </div>
 
-
-                                        <div id="header-widgets">
-                          <div id="custom_html-2" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><!-- /109765683/728_Banner -->
- </div></div>                      </div><!--/#header-ads-->
-                                </div>
-                <nav class="nav-container group desktop-menu " id="nav-header" data-menu-id="header-3">
-    <div class="nav-text"><!-- put your mobile menu text here --></div>
-  <div class="nav-wrap container">
-        <ul id="menu-top-1" class="nav container-inner group">
-    <h1>Joe</h1>
+    <h2>2016/Shanghai Football Comminicate</h2>
     <p class="post-byline">
       <span class="vcard author">
         <span class="fn"><a href="/main">main</a></span>
       </span>
-      &middot; 發表 <time class="published">2021-12-15</time>
     </p>
-    <ins
-      id="scupio-sc-4995-17520-858516"
-      class="scupioadslot"
-      style="display: inline-block; width: 728px; height: 90px"
-      data-sca-pub="lRIJBAgyQA=="
-      data-sca-web="4995"
-      data-sca-category="17"
-      data-sca-cid="17520"
-      data-sca-slot-type="PRA"
-    ></ins>
-  
-    <p>Joe is a loser.</p>
-    <img width="1200" src="./shanghai.jpg" alt="shanghai" />
+    <img width="600" src="./pic/shanghai.jpg" alt="shanghai" />
     <h2>Mapping</h2>
-    <div id='map' style='width: 400px; height: 300px;'></div>
-<iframe width='100%' height='400px' src="https://api.mapbox.com/styles/v1/joehuang27/ckx7hw0vt91rk14lgrb5xkgfk.html?title=false&access_token=pk.eyJ1Ijoiam9laHVhbmcyNyIsImEiOiJja3g3Ymd5dmQweWp0Mm9xdW1ueXk5cjJ3In0.gtRi3iXqcIkj54cpaXgRSA&zoomwheel=false#8.75/24.9289/121.5076" title="Basic" style="border:none;"></iframe>
-
-    <div class='tableauPlaceholder' id='viz1639646678357' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16383512015210&#47;1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1639646678357');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-
+    <div id="map" style="width: 400px"></div>
+    <iframe
+      width="100%"
+      height="400px"
+      src="https://api.mapbox.com/styles/v1/joehuang27/ckx7hw0vt91rk14lgrb5xkgfk.html?title=false&access_token=pk.eyJ1Ijoiam9laHVhbmcyNyIsImEiOiJja3g3Ymd5dmQweWp0Mm9xdW1ueXk5cjJ3In0.gtRi3iXqcIkj54cpaXgRSA&zoomwheel=false#8.75/24.9289/121.5076"
+      title="Basic"
+      style="border: none"
+    ></iframe>
+    <h2>Tableau</h2>
+    <div
+      class="tableauPlaceholder"
+      id="viz1639646678357"
+      style="position: relative"
+    >
+      <object class="tableauViz" style="display: none">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="_16383512015210&#47;1" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="zh-TW" />
+      </object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById("viz1639646678357");
+      var vizElement = divElement.getElementsByTagName("object")[0];
+      vizElement.style.width = "100%";
+      vizElement.style.height = divElement.offsetWidth * 0.75 + "px";
+      var scriptElement = document.createElement("script");
+      scriptElement.src =
+        "https://public.tableau.com/javascripts/api/viz_v1.js";
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
 
     <h2>list</h2>
     <ol>
@@ -115,7 +131,15 @@
         </tr>
       </tbody>
     </table>
-
-    <a href="https://github.com/JoeHuang27/JoeHuang27">Github</a>
+    <br />
+    <br />
+    <div id="Footer">
+      <p>Design by Joe @ Taiwan, 2021</p>
+      <a
+        href="https://github.com/JoeHuang27/JoeHuang27"
+        style="color: aliceblue"
+        >Github</a
+      >
+    </div>
   </body>
 </html>
