@@ -10,6 +10,12 @@
     <meta name="author" content="Joe H 27" />
     <link rel="icon" href="/pic/icon-j.ico" type="image/icon-j" / > <link
     rel="shortcut icon" href="/pic/icon-j.ico" type="image/icon-j" / >
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./style.css" />
     <style>
       body {
@@ -39,23 +45,48 @@
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
+      <a class="active" href="#home" style="font-family: 'Bebas Neue', cursive"
+        >Home</a
+      >
+      <a href="#news" style="font-family: 'Bebas Neue', cursive">News</a>
+      <a href="#contact" style="font-family: 'Bebas Neue', cursive">Contact</a>
+      <a href="#about" style="font-family: 'Bebas Neue', cursive">About</a>
     </div>
     <div id="Header">
-      <h1>Joe's Page</h1>
+      <br />
+      <h1 style="margin-top: 0%">Joe's Page</h1>
       <p>Joe is a loser.</p>
     </div>
+    <div id="container">
+      <div id="box1">
+        <h2>2015/MagaPort</h2>
+        <img
+          width="90%"
+          src="./pic/shine.jpg"
+          alt="shine"
+          style="opacity: 0.85"
+        />
+      </div>
+      <div id="box1">
+        <h2>2016/Shanghai Football Comminicate</h2>
+        <!-- <p class="post-byline">
+          <span class="vcard author">
+            <span class="fn"><a href="/main">main</a></span>
+          </span>
+        </p> -->
+        <img width="90%" src="./pic/shanghai.jpg" alt="shanghai" />
+      </div>
+    </div>
+    <div id="container">
+      <div id="box1">
+        <h2>2015/MagaPort</h2>
+        <img width="90%" src="./pic/hedonism.jpg" alt="hedonism" />
+      </div>
 
-    <h2>2016/Shanghai Football Comminicate</h2>
-    <p class="post-byline">
-      <span class="vcard author">
-        <span class="fn"><a href="/main">main</a></span>
-      </span>
-    </p>
-    <img width="600" src="./pic/shanghai.jpg" alt="shanghai" />
+      <div id="box2">
+        <h1>JOE JOE JOE</h1>
+      </div>
+    </div>
     <h2>Mapping</h2>
     <div id="map" style="width: 400px"></div>
     <iframe
@@ -65,7 +96,46 @@
       title="Basic"
       style="border: none"
     ></iframe>
-<div class='tableauPlaceholder' id='viz1639731542085' style='position: relative'><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_16397311418540&#47;1_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1639731542085');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1024px';vizElement.style.height='795px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1024px';vizElement.style.height='795px';} else { vizElement.style.width='1024px';vizElement.style.height='795px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <h2>Tableau</h2>
+    <div
+      class="tableauPlaceholder"
+      id="viz1639731542085"
+      style="position: relative"
+    >
+      <object class="tableauViz" style="display: none">
+        <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" />
+        <param name="embed_code_version" value="3" />
+        <param name="site_root" value="" />
+        <param name="name" value="_16397311418540&#47;1_1" />
+        <param name="tabs" value="no" />
+        <param name="toolbar" value="yes" />
+        <param name="animate_transition" value="yes" />
+        <param name="display_static_image" value="yes" />
+        <param name="display_spinner" value="yes" />
+        <param name="display_overlay" value="yes" />
+        <param name="display_count" value="yes" />
+        <param name="language" value="zh-TW" />
+        <param name="filter" value="publish=yes" />
+      </object>
+    </div>
+    <script type="text/javascript">
+      var divElement = document.getElementById("viz1639731542085");
+      var vizElement = divElement.getElementsByTagName("object")[0];
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = "1024px";
+        vizElement.style.height = "795px";
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = "1024px";
+        vizElement.style.height = "795px";
+      } else {
+        vizElement.style.width = "1024px";
+        vizElement.style.height = "795px";
+      }
+      var scriptElement = document.createElement("script");
+      scriptElement.src =
+        "https://public.tableau.com/javascripts/api/viz_v1.js";
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
 
     <h2>list</h2>
     <ol>
