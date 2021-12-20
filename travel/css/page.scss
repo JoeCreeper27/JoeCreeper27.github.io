@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+h1 {
+  font-family: "Bebas Neue", cursive;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(220, 220, 220);
+  box-shadow: rgb(66, 66, 66) 0rem 0.5rem 1rem;
+  z-index: 2;
+  position: sticky;
+  top: 0;
+  div.logo {
+    display: flex;
+    align-items: center;
+    flex: 3 1 400px;
+
+    img {
+      margin-left: 2rem;
+      margin-right: 1rem;
+      height: 60px;
+      width: 60px;
+    }
+  }
+  nav {
+    flex: 1 1 300px;
+    ul {
+      display: flex;
+      list-style-type: none;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 10px;
+      li {
+        text-shadow: rgb(189, 189, 189) 0.1rem 0.1rem 0.2rem;
+        transition: all 0.5s ease-in;
+
+        .active {
+          color: white;
+          font-size: 1.1rem;
+          text-shadow: darkslategray 0.2rem 0.2rem 0.4rem;
+        }
+        :hover {
+          color: white;
+          font-size: 1.1rem;
+          text-shadow: darkslategray 0.2rem 0.2rem 0.4rem;
+        }
+        a {
+          color: teal;
+          text-decoration: none;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+main {
+  section.backImage {
+    min-height: 90vh;
+    width: 100%;
+    color: white;
+    background-image: url("../pic/backgroundPic.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  div.filter {
+    background-color: rgba(220, 255, 240, 0.4);
+    width: 100%;
+    min-height: 90vh;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+  }
+  button.find {
+    background-color: rgba(120, 200, 190, 0.8);
+    box-shadow: gray 0.5rem 0.5rem 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: white;
+    border: darkslategrey;
+    border-radius: 1rem;
+    cursor: pointer;
+  }
+  section.second {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    h1 {
+      margin: 2rem;
+      font-size: 2rem;
+      color: teal;
+    }
+
+    section.cards {
+      display: flex;
+      width: 80%;
+      min-height: 80vh;
+      flex-wrap: wrap;
+
+      div.card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        padding: 2rem;
+        flex: 1 1 300px;
+        div.img-con {
+          overflow: hidden;
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+
+          img {
+            width: 200px;
+            height: 200px;
+            opacity: 80%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.3s ease-out;
+          }
+          img:hover {
+            transform: scale(1.2);
+          }
+        }
+        h4 {
+          color: teal;
+          margin: 1rem;
+        }
+        a {
+          text-decoration: none;
+          padding: 0.5rem 1.5rem;
+          background-color: teal;
+          color: white;
+          border-radius: 10%;
+        }
+      }
+    }
+  }
+}
+footer {
+  min-height: 30vh;
+  width: 100%;
+  color: white;
+  background-color: rgb(220, 220, 220);
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  div.logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 1rem;
+      height: 50px;
+      width: 50px;
+    }
+  }
+
+  section.link {
+    margin-bottom: 1rem;
+    a {
+      margin: 1rem 1.5rem;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+// scrollbar setting
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: teal;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: darkslategrey;
+}
