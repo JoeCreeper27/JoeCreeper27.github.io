@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mapbox-J</title>
+        <style>
+          body {
+          margin: 0;
+          padding: 0;
+          }
+          #map {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 100%;
+          }
+          </style>
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css'
+            rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+        <script
+            src='https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
+    </head>
+    <body>
+      <div>mapbox</div>
+        <div id='map'>
+            <script>
+            mapboxgl.accessToken = 'pk.eyJ1Ijoiam9laHVhbmcyNyIsImEiOiJja3g3Ymd5dmQweWp0Mm9xdW1ueXk5cjJ3In0.gtRi3iXqcIkj54cpaXgRSA';
+                const map = new mapboxgl.Map({
+                container: 'map', // container id
+                style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
+                center: [24, 112], // starting position
+                zoom: 12 // starting zoom
+                });
+                const PVSites ={
+"type": "FeatureCollection",
+"name": "PhantaPVSite",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "花蓮天鼎宮", "address": "花蓮縣花蓮市石壁段 913地號", "type": "Roof-Bracket", "capacity": "185.98 kW", "opneingDate": "2020-12-15", "registeredDate": null, "coordinatesX": 121.575708, "coordinatesY": 24.006894, "coordinates": "24.006894 ,121.575708" }, "geometry": { "type": "Point", "coordinates": [ 121.575708, 24.006894 ] } },
+{ "type": "Feature", "properties": { "name": "屏東北門", "address": "屏東縣里港鄉瀰力肚段", "type": "Ground-Bracket", "capacity": "1821.38kw", "opneingDate": "2021-06-22", "registeredDate": null, "coordinatesX": 120.48799, "coordinatesY": 22.83432, "coordinates": "22.83432 ,120.48799" }, "geometry": { "type": "Point", "coordinates": [ 120.48799, 22.83432 ] } },
+{ "type": "Feature", "properties": { "name": "桃園超特", "address": "桃園市蘆竹區長興路三段277巷6號", "type": "Roof-Bracket", "capacity": "224.4kw", "opneingDate": "2020-11-30", "registeredDate": null, "coordinatesX": 121.274433, "coordinatesY": 25.069297, "coordinates": "25.069297 ,121.274433" }, "geometry": { "type": "Point", "coordinates": [ 121.274433, 25.069297 ] } },
+{ "type": "Feature", "properties": { "name": "花蓮高工", "address": "花蓮縣花蓮市府前路27號", "type": "Roof-Bracket, Roof-Tiled, Court-Tiled", "capacity": "1581.68kw", "opneingDate": null, "registeredDate": null, "coordinatesX": 121.619133, "coordinatesY": 23.998378, "coordinates": "23.998378 ,121.619133" }, "geometry": { "type": "Point", "coordinates": [ 121.619133, 23.998378 ] } },
+{ "type": "Feature", "properties": { "name": "台南雪山", "address": "台南市七股區篤加段151-1319地號", "type": "Ground-Bracket", "capacity": "1462.86kw", "opneingDate": null, "registeredDate": null, "coordinatesX": 120.1438, "coordinatesY": 23.1598, "coordinates": "23.1598 ,120.1438" }, "geometry": { "type": "Point", "coordinates": [ 120.1438, 23.1598 ] } },
+{ "type": "Feature", "properties": { "name": "桃園日立物流", "address": "桃園市龜山區萬壽路二段372號", "type": "Roof-Bracket", "capacity": "756.84kw", "opneingDate": "2021-07-21", "registeredDate": null, "coordinatesX": 121.354384, "coordinatesY": 25.002142, "coordinates": "25.002142 ,121.354384" }, "geometry": { "type": "Point", "coordinates": [ 121.354384, 25.002142 ] } },
+{ "type": "Feature", "properties": { "name": "台南新埔", "address": "台南市七股區七股段656地號", "type": "Ground-Bracket", "capacity": "999.495kw", "opneingDate": null, "registeredDate": null, "coordinatesX": 120.12076, "coordinatesY": 23.12557, "coordinates": "23.12557 ,120.12076" }, "geometry": { "type": "Point", "coordinates": [ 120.12076, 23.12557 ] } },
+{ "type": "Feature", "properties": { "name": "新竹五合吉", "address": "新竹縣關西鎮東平里", "type": "Roof-Bracket", "capacity": "751.4kw", "opneingDate": "2021-10-07", "registeredDate": null, "coordinatesX": 121.1447, "coordinatesY": 24.82731, "coordinates": "24.82731 ,121.1447" }, "geometry": { "type": "Point", "coordinates": [ 121.1447, 24.82731 ] } }
+]
+}
+;
+    const CWBObservatory={
+"type": "FeatureCollection",
+"name": "CWBFirstObservatory",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "站號": "466850", "站名": "五分山雷達站", "海拔高度(m)": 756.0, "經度": 121.781205, "緯度": 25.071182, "城市": "新北市", "地址": "瑞芳區靜安路四段1巷1號", "資料起始日期": "1988-07-01", "撤站日期": null, "備註": "本站只有雷達觀測資料。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.781205, 25.071182 ] } },
+{ "type": "Feature", "properties": { "站號": "466880", "站名": "板橋", "海拔高度(m)": 9.7, "經度": 121.442017, "緯度": 24.997647, "城市": "新北市", "地址": "板橋區大觀路二段265巷62號", "資料起始日期": "2002-01-01", "撤站日期": null, "備註": "原為探空站，自2002年開始進行氣象觀測。因受附近興建合宜住宅影響，日照觀測自民國104年起受大樓陰影遮蔽而影響觀測資料，影響時間為10月至隔年3月之7時至11時，4月至9月之7時至8時。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.442017, 24.997647 ] } },
+{ "type": "Feature", "properties": { "站號": "466900", "站名": "淡水", "海拔高度(m)": 19.0, "經度": 121.448906, "緯度": 25.164889, "城市": "新北市", "地址": "淡水區中正東路42巷6號", "資料起始日期": "1942-10-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.448906, 25.164889 ] } },
+{ "type": "Feature", "properties": { "站號": "466910", "站名": "鞍部", "海拔高度(m)": 837.6, "經度": 121.529731, "緯度": 25.182586, "城市": "臺北市", "地址": "北投區陽明山竹子湖路111號", "資料起始日期": "1943-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.529731, 25.182586 ] } },
+{ "type": "Feature", "properties": { "站號": "466920", "站名": "臺北", "海拔高度(m)": 5.3, "經度": 121.514853, "緯度": 25.037658, "城市": "臺北市", "地址": "中正區公園路64號", "資料起始日期": "1896-08-11", "撤站日期": null, "備註": "1992/02至1997/08因本局改建，觀測地點移至臺北師院(466921)。2014至2015氣候年報之氣壓計海面上高度應為30.3m(2014/10/25搬遷，6.6m->30.3m)。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.514853, 25.037658 ] } },
+{ "type": "Feature", "properties": { "站號": "466930", "站名": "竹子湖", "海拔高度(m)": 607.1, "經度": 121.544547, "緯度": 25.162078, "城市": "臺北市", "地址": "北投區陽明山竹子湖路2號", "資料起始日期": "1943-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.544547, 25.162078 ] } },
+{ "type": "Feature", "properties": { "站號": "466940", "站名": "基隆", "海拔高度(m)": 26.7, "經度": 121.740475, "緯度": 25.133314, "城市": "基隆市", "地址": "仁愛區港西街6號6樓(海港大樓6樓)", "資料起始日期": "1946-10-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.740475, 25.133314 ] } },
+{ "type": "Feature", "properties": { "站號": "466950", "站名": "彭佳嶼", "海拔高度(m)": 101.7, "經度": 122.079744, "緯度": 25.627975, "城市": "基隆市", "地址": "中正區彭佳嶼", "資料起始日期": "1936-05-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 122.079744, 25.627975 ] } },
+{ "type": "Feature", "properties": { "站號": "466990", "站名": "花蓮", "海拔高度(m)": 16.1, "經度": 121.613275, "緯度": 23.975128, "城市": "花蓮縣", "地址": "花蓮市花崗街24號", "資料起始日期": "1910-11-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.613275, 23.975128 ] } },
+{ "type": "Feature", "properties": { "站號": "467050", "站名": "新屋", "海拔高度(m)": 20.6, "經度": 121.047486, "緯度": 25.006744, "城市": "桃園市", "地址": "新屋區東興路二段946號", "資料起始日期": "2013-07-01", "撤站日期": null, "備註": "座標及高度於2013/10/09更正。2020/01/01至2020/02/15因施工部分觀測資料缺值。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.047486, 25.006744 ] } },
+{ "type": "Feature", "properties": { "站號": "467060", "站名": "蘇澳", "海拔高度(m)": 24.9, "經度": 121.857372, "緯度": 24.596736, "城市": "宜蘭縣", "地址": "蘇澳鎮港區路1號6樓(蘇澳港行政大樓6樓)", "資料起始日期": "1982-01-01", "撤站日期": null, "備註": "1981/12/1開始觀測。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.857372, 24.596736 ] } },
+{ "type": "Feature", "properties": { "站號": "467080", "站名": "宜蘭", "海拔高度(m)": 7.2, "經度": 121.756528, "緯度": 24.763975, "城市": "宜蘭縣", "地址": "宜蘭市力行路150號", "資料起始日期": "1935-12-06", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.756528, 24.763975 ] } },
+{ "type": "Feature", "properties": { "站號": "467110", "站名": "金門", "海拔高度(m)": 47.9, "經度": 118.289281, "緯度": 24.407306, "城市": "金門縣", "地址": "金城鎮金水里西海路一段250號", "資料起始日期": "2004-01-16", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 118.289281, 24.407306 ] } },
+{ "type": "Feature", "properties": { "站號": "467270", "站名": "田中", "海拔高度(m)": 48.6, "經度": 120.581348, "緯度": 23.873776, "城市": "彰化縣", "地址": "田中鎮中潭里4鄰高鐵三路1段167號", "資料起始日期": "2020-04-09", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.581348, 23.873776 ] } },
+{ "type": "Feature", "properties": { "站號": "467300", "站名": "東吉島", "海拔高度(m)": 43.0, "經度": 119.667467, "緯度": 23.25695, "城市": "澎湖縣", "地址": "望安鄉東吉村156號", "資料起始日期": "1963-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 119.667467, 23.25695 ] } },
+{ "type": "Feature", "properties": { "站號": "467350", "站名": "澎湖", "海拔高度(m)": 10.7, "經度": 119.563094, "緯度": 23.565503, "城市": "澎湖縣", "地址": "馬公市新興路2號", "資料起始日期": "1896-11-21", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 119.563094, 23.565503 ] } },
+{ "type": "Feature", "properties": { "站號": "467410", "站名": "臺南", "海拔高度(m)": 40.8, "經度": 120.204772, "緯度": 22.993239, "城市": "臺南市", "地址": "中西區公園路21號", "資料起始日期": "1897-01-01", "撤站日期": null, "備註": "1998/05停止觀測，2002/01恢復觀測。2002年至2006年氣候年報之風速儀地上高度應為53.7m。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.204772, 22.993239 ] } },
+{ "type": "Feature", "properties": { "站號": "467420", "站名": "永康", "海拔高度(m)": 8.1, "經度": 120.2367, "緯度": 23.038386, "城市": "臺南市", "地址": "永康區鹽行里正南五街520巷88號", "資料起始日期": "1947-06-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.2367, 23.038386 ] } },
+{ "type": "Feature", "properties": { "站號": "467440", "站名": "高雄", "海拔高度(m)": 2.3, "經度": 120.315733, "緯度": 22.565992, "城市": "高雄市", "地址": "前鎮區明孝里26鄰漁港南二路2號", "資料起始日期": "1931-04-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.315733, 22.565992 ] } },
+{ "type": "Feature", "properties": { "站號": "467480", "站名": "嘉義", "海拔高度(m)": 26.9, "經度": 120.432906, "緯度": 23.495925, "城市": "嘉義市", "地址": "西區北新里海口寮路56號", "資料起始日期": "1968-09-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.432906, 23.495925 ] } },
+{ "type": "Feature", "properties": { "站號": "467490", "站名": "臺中", "海拔高度(m)": 84.0, "經度": 120.684075, "緯度": 24.145736, "城市": "臺中市", "地址": "北區精武路295號", "資料起始日期": "1897-01-01", "撤站日期": null, "備註": "2000年至2006年氣候年報之海拔高度誤植為34m。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.684075, 24.145736 ] } },
+{ "type": "Feature", "properties": { "站號": "467530", "站名": "阿里山", "海拔高度(m)": 2413.4, "經度": 120.813242, "緯度": 23.508208, "城市": "嘉義縣", "地址": "阿里山鄉中正村4鄰東阿里山73-1號", "資料起始日期": "1933-04-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.813242, 23.508208 ] } },
+{ "type": "Feature", "properties": { "站號": "467540", "站名": "大武", "海拔高度(m)": 8.1, "經度": 120.903789, "緯度": 22.355675, "城市": "臺東縣", "地址": "大武鄉大武街115號", "資料起始日期": "1940-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.903789, 22.355675 ] } },
+{ "type": "Feature", "properties": { "站號": "467550", "站名": "玉山", "海拔高度(m)": 3844.8, "經度": 120.959522, "緯度": 23.487614, "城市": "南投縣", "地址": "信義鄉玉山北峰1號", "資料起始日期": "1943-10-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.959522, 23.487614 ] } },
+{ "type": "Feature", "properties": { "站號": "467571", "站名": "新竹", "海拔高度(m)": 26.9, "經度": 121.014219, "緯度": 24.827853, "城市": "新竹縣", "地址": "竹北市北崙里3鄰光明五街60號", "資料起始日期": "1991-07-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.014219, 24.827853 ] } },
+{ "type": "Feature", "properties": { "站號": "467590", "站名": "恆春", "海拔高度(m)": 22.3, "經度": 120.746339, "緯度": 22.003897, "城市": "屏東縣", "地址": "恆春鎮天文路50號", "資料起始日期": "1896-11-20", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.746339, 22.003897 ] } },
+{ "type": "Feature", "properties": { "站號": "467610", "站名": "成功", "海拔高度(m)": 33.5, "經度": 121.373428, "緯度": 23.097486, "城市": "臺東縣", "地址": "成功鎮公民路84號", "資料起始日期": "1940-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.373428, 23.097486 ] } },
+{ "type": "Feature", "properties": { "站號": "467620", "站名": "蘭嶼", "海拔高度(m)": 324.0, "經度": 121.558339, "緯度": 22.036969, "城市": "臺東縣", "地址": "蘭嶼鄉紅頭村2號", "資料起始日期": "1941-11-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.558339, 22.036969 ] } },
+{ "type": "Feature", "properties": { "站號": "467650", "站名": "日月潭", "海拔高度(m)": 1017.5, "經度": 120.90805, "緯度": 23.881325, "城市": "南投縣", "地址": "魚池鄉水社村中山路270巷14號", "資料起始日期": "1941-11-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.90805, 23.881325 ] } },
+{ "type": "Feature", "properties": { "站號": "467660", "站名": "臺東", "海拔高度(m)": 9.0, "經度": 121.154586, "緯度": 22.752211, "城市": "臺東縣", "地址": "臺東市大同路106號", "資料起始日期": "1901-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 121.154586, 22.752211 ] } },
+{ "type": "Feature", "properties": { "站號": "467770", "站名": "梧棲", "海拔高度(m)": 31.7, "經度": 120.523381, "緯度": 24.256003, "城市": "臺中市", "地址": "梧棲區臺灣大道十段2號海港大樓6樓", "資料起始日期": "1978-07-01", "撤站日期": null, "備註": "於2020/1/1起，由人工觀測作業改為自動觀測。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.523381, 24.256003 ] } },
+{ "type": "Feature", "properties": { "站號": "467790", "站名": "墾丁雷達站", "海拔高度(m)": 42.0, "經度": 120.808028, "緯度": 21.948235, "城市": "屏東縣", "地址": "恆春鎮燈塔路51巷33號", "資料起始日期": "2001-11-01", "撤站日期": null, "備註": "本站只有雷達觀測資料。", "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 120.808028, 21.948235 ] } },
+{ "type": "Feature", "properties": { "站號": "467990", "站名": "馬祖", "海拔高度(m)": 97.8, "經度": 119.923419, "緯度": 26.169269, "城市": "連江縣", "地址": "南竿鄉四維村6鄰88號", "資料起始日期": "2004-01-01", "撤站日期": null, "備註": null, "原站號": null, "新站號": null }, "geometry": { "type": "Point", "coordinates": [ 119.923419, 26.169269 ] } }
+]
+};
+map.on('load', () => {
+  map.addLayer({
+    id: 'PVsites',
+    type: 'symbol',
+    source: {
+      type: 'geojson',
+      data: hospitals
+    },
+    layout: {
+      'icon-image': 'hospital-15',
+      'icon-allow-overlap': true
+    },
+    paint: {}
+  });
+  map.addLayer({
+    id: 'CWBObservatory',
+    type: 'symbol',
+    source: {
+      type: 'geojson',
+      data: libraries
+    },
+    layout: {
+      'icon-image': 'library-15'
+    },
+    paint: {}
+  });
+});
+const popup = new mapboxgl.Popup();
+
+map.on('mousemove', (event) => {
+  const features = map.queryRenderedFeatures(event.point, {
+    layers: ['PVSites', 'CWBObervatory']
+  });
+  if (!features.length) {
+    popup.remove();
+    return;
+  }
+  const feature = features[0];
+
+  popup
+    .setLngLat(feature.geometry.coordinates)
+    .setHTML(feature.properties.Name)
+    .addTo(map);
+
+  map.getCanvas().style.cursor = features.length ? 'pointer' : '';
+});
+map.addSource('nearest-Observatory', {
+  type: 'geojson',
+  data: {
+    type: 'FeatureCollection',
+    features: []
+  }
+});
+map.on('click', (event) => {
+  // Return any features from the 'libraries' layer whenever the map is clicked
+  const PVSitesFeatures = map.queryRenderedFeatures(event.point, {
+    layers: ['PVSites']
+  });
+  if (!PVSiteFeatures.length) {
+    return;
+  }
+  const PVSiteFeature = PVSiteFeatures[0];
+
+  // Using Turf, find the nearest hospital to library clicked
+  const nearestObservatory = turf.nearest(PVSiteFeature, CWBObservatory);
+
+  // If a nearest library is not found, return early
+  if (nearestObservatory === null) return;
+  // Update the 'nearest-library' data source to include
+  // the nearest library
+  map.getSource('nearest-Obseravtory').setData({
+    type: 'FeatureCollection',
+    features: [nearestObservatory]
+  });
+
+  // Create a new circle layer from the 'nearest-library' data source
+  if (map.getLayer('nearest-Observatory')) {
+    map.removeLayer('nearest-Observatory');
+  }
+  map.addLayer(
+    {
+      id: 'nearest-Observatory',
+      type: 'circle',
+      source: 'nearest-Observatory',
+      paint: {
+        'circle-radius': 12,
+        'circle-color': '#486DE0'
+      }
+    },
+    'CWBObservatory'
+  );
+});
+        </script>
+        </div>
+    </body>
+</html>
