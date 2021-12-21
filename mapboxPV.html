@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MapBox / PV Station & CWB Observatory</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      section {
+        display: flex;
+        position: absolute;
+        top: 0;
+        height: 60px;
+        width: 100%;
+        background-color: rgba(56, 56, 56, 0.75);
+        box-shadow: 0rem 0rem 1rem gray;
+        z-index: 99;
+        justify-content: space-between;
+      }
+      div.logo {
+        flex: 5 1 100px;
+      }
+      nav {
+        flex: 1 1 100px;
+      }
+      .navbar ul {
+        display: none;
+      }
+
+      .navbar li:hover ul {
+        display: block;
+      }
+
+      ul .navbar {
+        list-style-type: none;
+        overflow: hidden;
+      }
+
+      .navbar li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .navbar li {
+        background: rgba(56, 56, 56, 0.75);
+        width: 100px;
+        display: block;
+        position: relative;
+        float: right;
+        text-align: center;
+        padding-top: 18px;
+        padding-bottom: 18px;
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .navbar li:hover {
+        cursor: pointer;
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="logo">
+        <h1 style="color: white; margin-left: 2rem">J-Mapbox</h1>
+      </div>
+      <nav>
+        <ul class="navbar">
+          <li>
+            <a href="#news">News</a>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#news">News</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li><a href="#about">About</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <div id="map"></div>
+    <script>
+      // The value for 'accessToken' begins with 'pk...'
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoiam9laHVhbmcyNyIsImEiOiJja3g3Ymd5dmQweWp0Mm9xdW1ueXk5cjJ3In0.gtRi3iXqcIkj54cpaXgRSA";
+      const map = new mapboxgl.Map({
+        container: "map",
+        // Replace YOUR_STYLE_URL with your style URL.
+        style: "mapbox://styles/joehuang27/ckx7hw0vt91rk14lgrb5xkgfk",
+        center: [121, 24],
+        zoom: 7,
+      });
+
+      // Code from the next step will go here.
+      /* 
+Add an event listener that runs
+  when a user clicks on the map element.
+*/
+      map.on("click", (event) => {
+        // If the user clicked on one of your markers, get its information.
+        const features = map.queryRenderedFeatures(event.point, {
+          layers: ["cwb-observatory", "phantapvsite"], // replace with your layer name
+        });
+        if (!features.length) {
+          return;
+        }
+        const feature = features[0];
+
+        /* 
+    Create a popup, specify its options 
+    and properties, and add it to the map.
+  */
+        const popup = new mapboxgl.Popup({ offset: [0, -15] })
+          .setLngLat(feature.geometry.coordinates)
+          .setHTML(
+            `<h3>${feature.properties.站名}</h3><p>${feature.properties.description}</p>`
+          )
+          .addTo(map);
+      });
+
+      //   ----Rotate function----
+      //   function rotate() {
+      //     map.easeTo({ bearing: 40, duration: 10000, pitch: 0, zoom: 10 });
+      //     window.setTimeout(() => {
+      //       map.easeTo({ bearing: 180, duration: 10000, pitch: 0, zoom: 7 });
+      //       window.setTimeout(() => {
+      //         map.easeTo({ bearing: 270, duration: 10000, pitch: 0, zoom: 9 });
+      //         window.setTimeout(() => {
+      //           rotate();
+      //         }, 10000);
+      //       }, 10000);
+      //     }, 10000);
+      //   }
+
+      //   map.on("load", () => {
+      //     rotate();
+      //   });
+    </script>
+  </body>
+</html>
