@@ -6,24 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-      /* div.ain-con {
-        position: absolute;
-        top: 20%;
+      div.ain-con {
+        height: 70vh;
         align-items: center;
-      } */
+      }
       img {
         position: absolute;
-        top: 100px;
+        top: 60vh;
         left: 10px;
-        height: 50vh;
+        height: 40vh;
         /* transition: 2s all 1s; */
+      }
+      div.ani-con:hover img.p1 {
+        z-index: 1;
+        animation: 1s ease-out drop1 forwards;
+      }
+      div.ani-con:hover img.p2 {
+        z-index: 2;
+        animation: 2s ease-out drop2 forwards;
+      }
+      div.ani-con:hover img.p3 {
+        z-index: 3;
+        animation: 2.5s ease-out drop3 forwards;
+      }
+      div.ani-con:hover img.p4 {
+        z-index: 4;
+        animation: 2.8s ease-out drop4 forwards;
+      }
+      div.ani-con:hover img.p5 {
+        z-index: 10;
+        animation: 3s ease-out drop5 forwards;
       }
       @keyframes drop1 {
         from {
-          top: 0px;
+          top: 60vh;
         }
         to {
-          top: 100px;
+          top: 50vh;
+        }
+      }
+      @keyframes drop2 {
+        from {
+          top: 60vh;
+        }
+        to {
+          top: 40vh;
+        }
+      }
+      @keyframes drop3 {
+        from {
+          top: 60vh;
+        }
+        to {
+          top: 30vh;
+        }
+      }
+      @keyframes drop4 {
+        from {
+          top: 60vh;
+        }
+        to {
+          top: 20vh;
+        }
+      }
+      @keyframes drop5 {
+        from {
+          top: 60vh;
+        }
+        to {
+          top: 10vh;
         }
       }
     </style>
@@ -31,11 +82,30 @@
   <body>
     <div class="ani-con">
       <img src="./buildpic/build color-01.png" alt="" style="z-index: 0" />
+      <img src="./buildpic/front-01.png" alt="" style="z-index: 8" />
+      <img src="./buildpic/build base-01.png" alt="" style="z-index: 9" />
+      <img src="./buildpic/Pillar-01.png" alt="" class="p1" />
+      <img src="./buildpic/beam-01.png" alt="" class="p2" />
+      <img src="./buildpic/suC-01.png" alt="" class="p3" />
+      <img src="./buildpic/C-01.png" alt="" class="p4" />
       <img
-        src="./buildpic/build base-01.png"
+        src="./buildpic/r3-01.png"
         alt=""
-        style="z-index: 1; animation: drop1 1s ease 1s"
+        class="p5"
+        style="animation-duration: 3.2s"
       />
+      <img
+        src="./buildpic/r2-01.png"
+        alt=""
+        class="p5"
+        style="animation-duration: 3.1s"
+      />
+      <img src="./buildpic/r1-01.png" alt="" class="p5" />
     </div>
+    <button style="background-color: teal">
+      <a href="./index.html" style="text-decoration: none; color: white">
+        BACK</a
+      >
+    </button>
   </body>
 </html>
